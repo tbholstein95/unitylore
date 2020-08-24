@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GoldControl : MonoBehaviour
 {
     bool clicking = false;
     public int quantity = 10;
     public GameObject reso;
+    public Text goldDisplay;
 
     private void Start()
     {
         reso = GameObject.FindWithTag("resoman");
+        goldDisplay = GameObject.FindGameObjectWithTag("goldDisplay").GetComponent<Text>();
+        goldDisplay.text = "Gold: " + reso.GetComponent<Rm>().getGoldUnits();
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -18,7 +22,7 @@ public class GoldControl : MonoBehaviour
         {
             Debug.Log("Player in Tree Range of Gold");
             clicking = true;
-            Debug.Log(clicking);
+            //Debug.Log(clicking);
 
         }
 
@@ -29,7 +33,7 @@ public class GoldControl : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             clicking = false;
-            Debug.Log(clicking);
+            //Debug.Log(clicking);
 
         }
 
@@ -40,7 +44,8 @@ public class GoldControl : MonoBehaviour
         {
 
             reso.GetComponent<Rm>().addGold(amount: quantity);
-            Debug.Log(reso.GetComponent<Rm>().getGoldUnits());
+            //Debug.Log(reso.GetComponent<Rm>().getGoldUnits());
+            goldDisplay.text = "Gold: " + reso.GetComponent<Rm>().getGoldUnits();
 
         }
 

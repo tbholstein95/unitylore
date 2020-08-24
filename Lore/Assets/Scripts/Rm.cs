@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class Rm : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class Rm : MonoBehaviour
     public int amount;
     
 
+    private void Start()
+    {
+        
+    }
     public void addWood(int amount)
     {
         woodUnits += amount;

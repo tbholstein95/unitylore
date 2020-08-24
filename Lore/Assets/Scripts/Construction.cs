@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.XR.WSA;
+using UnityEngine.UI;
 
 public class Construction : MonoBehaviour
 {
@@ -13,12 +14,34 @@ public class Construction : MonoBehaviour
     public Rm rm;
     int cost = 20;
 
+    public Text goldDisplay;
+    public Text rockDisplay;
+    public Text woodDisplay;
+
+    private void Start()
+    {
+        goldDisplay = GameObject.FindGameObjectWithTag("goldDisplay").GetComponent<Text>();
+        //goldDisplay.text = "Gold: " + rm.GetComponent<Rm>().getGoldUnits();
+
+        rockDisplay = GameObject.FindGameObjectWithTag("rockDisplay").GetComponent<Text>();
+        //rockDisplay.text = "Rocks: " + rm.GetComponent<Rm>().getRockUnits();
+
+        woodDisplay = GameObject.FindGameObjectWithTag("woodDisplay").GetComponent<Text>();
+        //woodDisplay.text = "Wood: " + rm.GetComponent<Rm>().getWoodUnits();
+
+    }
+
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log(string.Concat("wood: ", rm.getWoodUnits(), " ", "gold: ", rm.getGoldUnits(), " ",  "rock: ", rm.getRockUnits()));
+        }
+
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Wood Units" + rm.getWoodUnits());
-            if (rm.getWoodUnits() == cost && rm.getRockUnits() == cost && rm.getGoldUnits() == cost)
+           
+            if (rm.getWoodUnits() >= cost && rm.getRockUnits() >= cost && rm.getGoldUnits() >= cost)
             {
                 removeCost();
                 Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -28,6 +51,13 @@ public class Construction : MonoBehaviour
                 Debug.Log(coordinate);
 
                 GameObject objectInstance = Instantiate(wallPrefab, tilepos, Quaternion.Euler(new Vector3(0, 0, 0)));
+                goldDisplay.text = "Gold: " + rm.GetComponent<Rm>().getGoldUnits();
+                rockDisplay.text = "Rocks: " + rm.GetComponent<Rm>().getRockUnits();
+                woodDisplay.text = "Wood: " + rm.GetComponent<Rm>().getWoodUnits();
+            }
+            else
+            {
+                Debug.Log("Not enough resources");
             }
             
         }

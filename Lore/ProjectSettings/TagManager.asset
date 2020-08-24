@@ -7,6 +7,9 @@ TagManager:
   - Tree
   - resourcemanagement
   - resoman
+  - woodDisplay
+  - rockDisplay
+  - goldDisplay
   layers:
   - Default
   - TransparentFX

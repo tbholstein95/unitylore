@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEditor.iOS;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TreeControl : MonoBehaviour
 {
     bool clicking = false;
     public int quantity = 10;
-
+    public Text woodDisplay;
     // Reso is resource manager for UI later and resource total information
     public GameObject reso;
 
     private void Start()
     {
         reso = GameObject.FindWithTag("resoman");
+        woodDisplay = GameObject.FindGameObjectWithTag("woodDisplay").GetComponent<Text>();
+        woodDisplay.text = "Wood: " + reso.GetComponent<Rm>().getWoodUnits();
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,7 +24,7 @@ public class TreeControl : MonoBehaviour
         {
             Debug.Log("Player in Tree Range of Tree");
             clicking = true;
-            Debug.Log(clicking);
+            //Debug.Log(clicking);
 
         }
 
@@ -32,7 +35,7 @@ public class TreeControl : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             clicking = false;
-            Debug.Log(clicking);
+            //Debug.Log(clicking);
             
         }
         
@@ -43,8 +46,9 @@ public class TreeControl : MonoBehaviour
         {
 
             reso.GetComponent<Rm>().addWood(amount: quantity);
-            Debug.Log(reso.GetComponent<Rm>().getWoodUnits());
-              
+            woodDisplay.text = "Wood: " + reso.GetComponent<Rm>().getWoodUnits();
+            //Debug.Log(reso.GetComponent<Rm>().getWoodUnits());
+
         }
 
     }
