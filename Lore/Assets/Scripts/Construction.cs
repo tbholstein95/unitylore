@@ -5,14 +5,18 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.XR.WSA;
 using UnityEngine.UI;
+using System;
 
 public class Construction : MonoBehaviour
 {
-    public GameObject wallPrefab;
+    public GameObject buildingOne;
+    public GameObject buildingTwo;
     public Vector2 mousepos;
     public Grid grid;
     public Rm rm;
     int cost = 20;
+    public int selectedBuildingNumber;
+    GameObject buildMe;
 
     public Text goldDisplay;
     public Text rockDisplay;
@@ -40,6 +44,15 @@ public class Construction : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
+            if(BuildingSelect.buildIndex == 1)
+            {
+                buildMe = buildingOne;
+            }
+
+            if(BuildingSelect.buildIndex == 2)
+            {
+                buildMe = buildingTwo;
+            }
            
             if (rm.getWoodUnits() >= cost && rm.getRockUnits() >= cost && rm.getGoldUnits() >= cost)
             {
@@ -50,7 +63,7 @@ public class Construction : MonoBehaviour
 
                 Debug.Log(coordinate);
 
-                GameObject objectInstance = Instantiate(wallPrefab, tilepos, Quaternion.Euler(new Vector3(0, 0, 0)));
+                GameObject objectInstance = Instantiate(buildMe, tilepos, Quaternion.Euler(new Vector3(0, 0, 0)));
                 goldDisplay.text = "Gold: " + rm.GetComponent<Rm>().getGoldUnits();
                 rockDisplay.text = "Rocks: " + rm.GetComponent<Rm>().getRockUnits();
                 woodDisplay.text = "Wood: " + rm.GetComponent<Rm>().getWoodUnits();
