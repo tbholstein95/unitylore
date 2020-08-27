@@ -18,6 +18,8 @@ public class Construction : MonoBehaviour
     public int selectedBuildingNumber;
     GameObject buildMe;
 
+    
+
     public Text goldDisplay;
     public Text rockDisplay;
     public Text woodDisplay;
@@ -33,6 +35,7 @@ public class Construction : MonoBehaviour
         woodDisplay = GameObject.FindGameObjectWithTag("woodDisplay").GetComponent<Text>();
         //woodDisplay.text = "Wood: " + rm.GetComponent<Rm>().getWoodUnits();
 
+        
     }
 
     void Update()
@@ -47,6 +50,7 @@ public class Construction : MonoBehaviour
             if(BuildingSelect.buildIndex == 1)
             {
                 buildMe = buildingOne;
+
             }
 
             if(BuildingSelect.buildIndex == 2)
@@ -60,6 +64,7 @@ public class Construction : MonoBehaviour
                 Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3Int coordinate = grid.LocalToCell(mouseWorldPos);
                 Vector3 tilepos = grid.GetCellCenterWorld(coordinate);
+                
 
                 Debug.Log(coordinate);
 
