@@ -35,6 +35,8 @@ public class Construction : MonoBehaviour
         woodDisplay = GameObject.FindGameObjectWithTag("woodDisplay").GetComponent<Text>();
         //woodDisplay.text = "Wood: " + rm.GetComponent<Rm>().getWoodUnits();
 
+        BuildingSelect.buildIndex = 0;
+
         
     }
 
@@ -47,6 +49,11 @@ public class Construction : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
+            if(BuildingSelect.buildIndex == 0)
+            {
+                return;
+            }
+
             if(BuildingSelect.buildIndex == 1)
             {
                 buildMe = buildingOne;
@@ -64,6 +71,7 @@ public class Construction : MonoBehaviour
                 Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3Int coordinate = grid.LocalToCell(mouseWorldPos);
                 Vector3 tilepos = grid.GetCellCenterWorld(coordinate);
+                BuildingSelect.buildIndex = 0;
                 
 
                 Debug.Log(coordinate);
