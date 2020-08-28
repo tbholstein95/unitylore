@@ -109,7 +109,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quantity: 10
+  woodDisplay: {fileID: 0}
   reso: {fileID: 0}
+  treeHealth: 50
+  treeReso: {fileID: 2154323048563066427}
 --- !u!1 &2154323049389429245
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,4 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quantity: 10
+  woodDisplay: {fileID: 0}
   reso: {fileID: 0}
+  treeHealth: 50
+  treeReso: {fileID: 0}

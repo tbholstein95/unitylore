@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 878, y: 492}
   m_MaxSize: {x: 18001, y: 14042}
   vertical: 0
-  controlID: 15500
+  controlID: 407
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 603, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 1
-  controlID: 15501
+  controlID: 408
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 603, y: 221}
   m_MaxSize: {x: 12003, y: 4021}
   vertical: 0
-  controlID: 15475
+  controlID: 386
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -185,8 +185,8 @@ MonoBehaviour:
     y: 0
     width: 287
     height: 605
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -223,7 +223,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 5cfbffffce3c0000
+      m_ExpandedIDs: 5cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -436,8 +436,8 @@ MonoBehaviour:
     y: 0
     width: 1070
     height: 605
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_MinSize: {x: 331, y: 271}
   m_MaxSize: {x: 14001, y: 10021}
   vertical: 0
-  controlID: 15502
+  controlID: 409
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -533,21 +533,21 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 80
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 80
   m_LastProjectPath: C:\Users\cattoy\Documents\Unity Projects\Lore\unitylore\Lore
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 263e0000
-    m_LastClickedID: 15910
-    m_ExpandedIDs: 00000000263e0000283e00002a3e000000ca9a3b
+    m_SelectedIDs: 3c3e0000
+    m_LastClickedID: 15932
+    m_ExpandedIDs: 00000000243e0000263e0000283e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -575,7 +575,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000263e0000283e00002a3e000000ca9a3b
+    m_ExpandedIDs: 00000000243e0000263e0000283e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -600,8 +600,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 143c0000
-    m_LastClickedInstanceID: 15380
+    m_SelectedInstanceIDs: 18310000
+    m_LastClickedInstanceID: 12568
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000fe4b00000c4d0000ae3b0000f43f000000000000
     m_RenameOverlay:
@@ -627,7 +627,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 214}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 80
   m_SkipHiddenPackages: 1
   m_DirectoriesAreaWidth: 220
@@ -650,8 +650,8 @@ MonoBehaviour:
     y: 0
     width: 792
     height: 342
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -743,7 +743,7 @@ MonoBehaviour:
     m_CachedPref: -327
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 15380
+  m_LastInspectedObjectInstanceID: 12568
   m_LastVerticalScrollValue: 0
   m_AssetGUID: 
   m_InstanceID: 0

@@ -6,11 +6,22 @@ using UnityEngine.UI;
 
 public class TreeControl : MonoBehaviour
 {
+    bool destroyTree = false;
+
     bool clicking = false;
+
     public int quantity = 10;
+
     public Text woodDisplay;
+
     // Reso is resource manager for UI later and resource total information
     public GameObject reso;
+
+    public int treeHealth = 50;
+
+    public GameObject treeReso;
+
+    public GameObject destroy;
 
     private void Start()
     {
@@ -36,6 +47,7 @@ public class TreeControl : MonoBehaviour
         {
             clicking = false;
             //Debug.Log(clicking);
+            destroy = null;
             
         }
         
@@ -44,13 +56,45 @@ public class TreeControl : MonoBehaviour
     { 
         if (clicking == true)
         {
-
             reso.GetComponent<Rm>().addWood(amount: quantity);
             woodDisplay.text = "Wood: " + reso.GetComponent<Rm>().getWoodUnits();
             //Debug.Log(reso.GetComponent<Rm>().getWoodUnits());
+            treeHealth -= 10;
+            
 
         }
 
+        
+
+    }
+
+    public void Update()
+    {
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                if (hit.collider != null)
+                {
+                destroy = hit.transform.parent.gameObject;
+                /*if (hit.transform.parent.gameObject == gameObject) Destroy(gameObject);*/
+                }
+
+                if (treeHealth <= 0)
+                {
+                    Destroy(destroy);
+                }
+        }
+           
+
+    }
+
+
+
+
+
+    public void removeTreeHealth()
+    {
+        treeHealth -= 10;
     }
 
 
