@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class TreeControl : MonoBehaviour
 {
-    bool destroyTree = false;
-
     bool clicking = false;
 
     public int quantity = 10;
@@ -18,8 +16,6 @@ public class TreeControl : MonoBehaviour
     public GameObject reso;
 
     public int treeHealth = 50;
-
-    public GameObject treeReso;
 
     public GameObject destroy;
 
@@ -61,43 +57,26 @@ public class TreeControl : MonoBehaviour
             //Debug.Log(reso.GetComponent<Rm>().getWoodUnits());
             treeHealth -= 10;
             
-
         }
-
-        
-
     }
 
     public void Update()
     {
-            if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null)
             {
-                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-                if (hit.collider != null)
-                {
-                destroy = hit.transform.parent.gameObject;
-                /*if (hit.transform.parent.gameObject == gameObject) Destroy(gameObject);*/
-                }
+            destroy = hit.transform.parent.gameObject;
+            /*if (hit.transform.parent.gameObject == gameObject) Destroy(gameObject);*/
+            }
 
-                if (treeHealth <= 0)
-                {
-                    Destroy(destroy);
-                }
+            if (treeHealth <= 0)
+            {
+                Destroy(destroy);
+            }
         }
            
-
     }
-
-
-
-
-
-    public void removeTreeHealth()
-    {
-        treeHealth -= 10;
-    }
-
-
-    
 
 }
