@@ -10,6 +10,7 @@ TagManager:
   - woodDisplay
   - rockDisplay
   - goldDisplay
+  - timeDisplay
   layers:
   - Default
   - TransparentFX
