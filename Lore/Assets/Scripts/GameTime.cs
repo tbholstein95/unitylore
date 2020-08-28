@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ public class GameTime : MonoBehaviour
     public static int day = hour/24;
     public static int month = day/30;
     public static int year = month/12;
+
+    public static bool recruitChance = false;
 
     public Text timeDisplay;
     private void Start()
@@ -30,6 +33,8 @@ public class GameTime : MonoBehaviour
         {
             second = 0;
             minute += 1;
+            recruitChance = true;
+
         }
         if(minute >= 10)
         {
