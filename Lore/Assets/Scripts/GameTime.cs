@@ -25,6 +25,22 @@ public class GameTime : MonoBehaviour
     {
 
         second += 1;
+
+        if(second >= 10)
+        {
+            second = 0;
+            minute += 1;
+        }
+        if(minute >= 10)
+        {
+            minute = 0;
+            hour += 1;
+        if(hour>= 24)
+            {
+                hour = 0;
+                day += 1;
+            }
+        }
         timeDisplay.text = "Day: " + day + "Time: " + hour + ":" + minute + ":" + second;
     }
 
