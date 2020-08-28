@@ -17,8 +17,11 @@ public class Recruitment : MonoBehaviour
     void Update()
     {
         innScore = Inn.innScore;
+        if(GameTime.recruitChance == true)
+        {
+            FindInnNPC();
+        }
         
-        FindInnNPC();
 
         
         
@@ -26,36 +29,24 @@ public class Recruitment : MonoBehaviour
 
     void FindInnNPC()
     {
+        float InnChanceDecimal = innScore / 10;
+        //Debug.Log(InnChanceDecimal + "INN CHANCE");
 
-        if(GameTime.recruitChance == true)
+        float ICD_Modifier = InnChanceDecimal * Random.Range(1, 100);
+        Debug.Log(ICD_Modifier + "ICD MOD");
+
+        int ICD_Compare = Random.Range(1, 50);
+        Debug.Log(ICD_Compare);
+
+        if (ICD_Modifier >= ICD_Compare)
         {
-            float InnChanceDecimal = innScore / 10;
-            //Debug.Log(InnChanceDecimal + "INN CHANCE");
-
-            float ICD_Modifier = InnChanceDecimal * Random.Range(1, 100);
-            Debug.Log(ICD_Modifier + "ICD MOD");
-
-            int ICD_Compare = Random.Range(1, 50);
-            Debug.Log(ICD_Compare);
-
-            if (ICD_Modifier >= ICD_Compare)
-            {
-                Debug.Log("Who dat boi, who him is?");
-                GameTime.recruitChance = false;
-            }
-            else
-            {
-                Debug.Log("Sure is quiet around here");
-                GameTime.recruitChance = false;
-            }
+            Debug.Log("Who dat boi, who him is?");
+            GameTime.recruitChance = false;
         }
-
-        
-
-        
-
-
+        else
+        {
+            Debug.Log("Sure is quiet around here");
+            GameTime.recruitChance = false;
+        }
     }
-
-
 }
