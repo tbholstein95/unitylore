@@ -16,7 +16,8 @@ public class GameTime : MonoBehaviour
     public static int year = month/12;
 
     public static bool recruitChance = false;
-
+    public static bool refreshList = false;
+    public static bool clearList = false;
     public Text timeDisplay;
     private void Start()
     {
@@ -29,23 +30,37 @@ public class GameTime : MonoBehaviour
 
         second += 1;
 
+        if(minute == 2 && second <= 2)
+        {
+            recruitChance = true;
+            refreshList = true;
+        }
+
         if(second >= 10)
         {
             second = 0;
             minute += 1;
-            recruitChance = true;
+            
 
         }
-        if(minute >= 10)
+
+        if(minute >= 3)
         {
             minute = 0;
             hour += 1;
-        if(hour>= 24)
-            {
-                hour = 0;
-                day += 1;
-            }
         }
+        if(hour == 1 && minute <= 2)
+        {
+            
+            clearList = true;
+
+        }
+        if(hour == 2)
+        {
+            hour = 0;
+            day += 1;
+        }
+        
         timeDisplay.text = "Day: " + day + "Time: " + hour + ":" + minute + ":" + second;
     }
 

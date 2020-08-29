@@ -7,16 +7,28 @@ public class HireBoard : MonoBehaviour
     bool clicking = false;
 
     public GameObject HireBoardUI;
+
+    public ButtonListControl BLC;
+
     // Start is called before the first frame update
     void Start()
     {
         HireBoardUI.SetActive(false);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(GameTime.refreshList == true)
+        {
+            GetDayList();
+        }
+
+        if(GameTime.clearList == true)
+        {
+            ClearList();
+        }
     }
 
     public void toggle()
@@ -25,12 +37,24 @@ public class HireBoard : MonoBehaviour
         HireBoardUI.SetActive(!HireBoardUI.activeSelf);
     }
 
+    public void GetDayList()
+    {
+        BLC.GenerateList();
+        GameTime.refreshList = false;
+    }
+
+    public void ClearList()
+    {
+        BLC.DestroyList();
+        Recruitment.InnRecruits.Clear();
+        GameTime.clearList = false;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             clicking = true;
-
         }
     }
 
@@ -38,7 +62,7 @@ public class HireBoard : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            toggle();
+            HireBoardUI.SetActive(false);
         }
     }
 

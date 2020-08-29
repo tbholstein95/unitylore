@@ -11,6 +11,7 @@ TagManager:
   - rockDisplay
   - goldDisplay
   - timeDisplay
+  - recruitButton
   layers:
   - Default
   - TransparentFX

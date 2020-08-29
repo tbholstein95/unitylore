@@ -6,6 +6,7 @@ public class Recruitment : MonoBehaviour
 {
     public static int recruitScore;
     float innScore;
+    public static List<string> InnRecruits = new List<string>();
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +22,11 @@ public class Recruitment : MonoBehaviour
         {
             FindInnNPC();
         }
-        
-
-        
-        
     }
 
     void FindInnNPC()
     {
-        float InnChanceDecimal = innScore / 10;
+        float InnChanceDecimal = innScore / 1;
         //Debug.Log(InnChanceDecimal + "INN CHANCE");
 
         float ICD_Modifier = InnChanceDecimal * Random.Range(1, 100);
@@ -42,6 +39,7 @@ public class Recruitment : MonoBehaviour
         {
             Debug.Log("Who dat boi, who him is?");
             GameTime.recruitChance = false;
+            InnRecruits.Add("Bilbo Baggins");
         }
         else
         {
