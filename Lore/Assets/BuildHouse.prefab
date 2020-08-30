@@ -344,7 +344,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 670179412942557735}
   m_HandleRect: {fileID: 4521450865929231920}
   m_Direction: 2
-  m_Value: 0.1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -674,7 +674,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5171431482301097121}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8300027895901495492}
+        m_TargetAssemblyTypeName: ButtonListControl, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5346311731472836176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,6 +823,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonTemplate: {fileID: 6281070529849233401}
+  button: {fileID: 0}
+  innPerson: {fileID: 5232295341188955023, guid: ac4ff64e0fa040643b4ba85c04e50505,
+    type: 3}
 --- !u!1 &6703800997267709150
 GameObject:
   m_ObjectHideFlags: 0

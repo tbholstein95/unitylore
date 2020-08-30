@@ -30,7 +30,7 @@ public class GameTime : MonoBehaviour
 
         second += 1;
 
-        if(minute == 2 && second <= 2)
+        if(minute == 2 && second <= 1)
         {
             recruitChance = true;
             refreshList = true;

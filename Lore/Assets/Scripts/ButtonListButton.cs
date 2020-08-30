@@ -10,6 +10,10 @@ public class ButtonListButton : MonoBehaviour
     [SerializeField]
     private ButtonListControl buttonControl;
 
+
+
+    GameObject innPerson;
+
     private string myTextString;
     public void SetText(string textString)
     {
@@ -17,8 +21,18 @@ public class ButtonListButton : MonoBehaviour
         myText.text = textString;
     }
 
-    public void OnClick()
+    public void OnClick(string text)
     {
-        buttonControl.ButtonClicked(myTextString);
+        /*GameObject innPerson = GameObject.Find(myTextString);
+        GameObject spawnPerson = Instantiate(innPerson);*/
+        //buttonControl.ButtonClicked(myTextString);
+        Debug.Log(myTextString);
+
+    }
+
+    public void SetName(string text)
+    {
+        myTextString = text;
+
     }
 }

@@ -21,6 +21,7 @@ public class Recruitment : MonoBehaviour
         if(GameTime.recruitChance == true)
         {
             FindInnNPC();
+            GameTime.recruitChance = false;
         }
     }
 
@@ -38,8 +39,9 @@ public class Recruitment : MonoBehaviour
         if (ICD_Modifier >= ICD_Compare)
         {
             Debug.Log("Who dat boi, who him is?");
-            GameTime.recruitChance = false;
-            InnRecruits.Add("Bilbo Baggins");
+            
+            InnRecruits.Add("Bilbo");
+            return;
         }
         else
         {

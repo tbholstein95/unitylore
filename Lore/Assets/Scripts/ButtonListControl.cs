@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class ButtonListControl : MonoBehaviour
 {
     [SerializeField]
     private GameObject buttonTemplate;
+
+    //public GameObject button;
+
+    public GameObject innPerson;
+
+    
 
 
     public void GenerateList()
@@ -25,9 +34,14 @@ public class ButtonListControl : MonoBehaviour
             GameObject button = Instantiate(buttonTemplate) as GameObject;
             button.SetActive(true);
 
-            button.GetComponent<ButtonListButton>().SetText("Button # " + i);
+            button.GetComponent<ButtonListButton>().SetText(i);
+            //button.GetComponenet<ButtonListButton>().
 
             button.transform.SetParent(buttonTemplate.transform.parent, false);
+
+
+            //button.GetComponent<ButtonListButton>().OnClick(i);
+            GameTime.refreshList = false;
         }
     }
 
@@ -40,9 +54,17 @@ public class ButtonListControl : MonoBehaviour
         }
     }
 
-    public void ButtonClicked(string myTextString)
+    public void ButtonClicked()
     {
-        Debug.Log(myTextString);
+        var go = EventSystem.current.currentSelectedGameObject;
+        string name = go.ToString();
+        string testName = go.GetComponentInChildren<Text>().text;
+        GameObject testSpawn = GameObject.Find(testName);
+        Debug.Log(testName);
+        GameObject spawnInnPerson = Instantiate(testSpawn);
+
     }
+
+
 
 }
