@@ -575,11 +575,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89a6088c6488374aa47f2a259eaf92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothSpeed: 2
-  minX: -1
-  maxX: 1
-  minY: -4
-  maxY: 4
+  smoothSpeed: 3
+  minX: -3
+  maxX: 3
+  minY: -3
+  maxY: 3
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -4288,6 +4288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 976674032}
   randomOptions: []
+  tileWorldLocations: []
   position: {x: 0, y: 0, z: 0}
   treeReso: {fileID: 2154323048563066427, guid: d2d6014661bf03142a4401454a6fa170,
     type: 3}

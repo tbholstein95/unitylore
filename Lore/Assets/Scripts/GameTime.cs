@@ -6,9 +6,8 @@ using UnityEngine.UI;
 
 public class GameTime : MonoBehaviour
 {
-    float nextSecond = 25;
 
-    public static int second = 1;
+    public static int second = -1;
     public static int minute = second/10;
     public static int hour = minute/10;
     public static int day = hour/24;
@@ -19,6 +18,7 @@ public class GameTime : MonoBehaviour
     public static bool refreshList = false;
     public static bool clearList = false;
     public Text timeDisplay;
+
     private void Start()
     {
         timeDisplay = GameObject.FindGameObjectWithTag("timeDisplay").GetComponent<Text>();
@@ -40,8 +40,6 @@ public class GameTime : MonoBehaviour
         {
             second = 0;
             minute += 1;
-            
-
         }
 
         if(minute >= 3)
@@ -49,12 +47,12 @@ public class GameTime : MonoBehaviour
             minute = 0;
             hour += 1;
         }
+
         if(hour == 1 && minute <= 2)
         {
-            
             clearList = true;
-
         }
+
         if(hour == 2)
         {
             hour = 0;

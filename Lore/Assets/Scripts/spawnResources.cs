@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+//using System.Numerics;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
@@ -9,6 +10,7 @@ public class spawnResources : MonoBehaviour
 {
     public Tilemap tilemap;
     public List<Vector3> randomOptions;
+    public List<Vector3> tileWorldLocations;
     public Vector3 position;
 
     public GameObject treeReso;
@@ -26,56 +28,49 @@ public class spawnResources : MonoBehaviour
     void Start()
 
     {
+        GetAllTiles();
 
         //Get size of tilemap.  Tilemap should be compressed from Inspector to keep it within the used tile range.
         /*BoundsInt size = (tilemap.cellBounds);*/
 
-        for(int i = 0; i < (numberOfTrees + numberOfRocks + numberOfGold); i++)
+        /*for(int i = 0; i < (numberOfTrees + numberOfRocks + numberOfGold); i++)
         {
-            /*float randCol = Random.Range(size.yMin, size.yMax);
-            float randRow = Random.Range(size.xMin, size.xMax);
-            Vector3 position = new Vector3(randCol, randRow);*/
             GetCoords();
-            
-        }
-        
-
-        
+        }*/
 
         //Generates number of Trees Equal to numberOfTrees Variable
         for(int i = 0; i < numberOfTrees; i++)
         {
-            /*float randCol = Random.Range(size.yMin, size.yMax);
-            float randRow = Random.Range(size.xMin, size.xMax);*/
-            Vector3 spawnHere = randomOptions[Random.Range(0, randomOptions.Count)];
-            randomOptions.Remove(spawnHere);
+
+            Vector3 spawnHere = tileWorldLocations[Random.Range(0, tileWorldLocations.Count)];
+            tileWorldLocations.Remove(spawnHere);
+            //Vector3 spawnHere = randomOptions[Random.Range(0, randomOptions.Count)];
+            //randomOptions.Remove(spawnHere);
             GameObject objectInstance = Instantiate(treeReso, spawnHere, Quaternion.Euler(new Vector3(0, 0, 0)));
         }
 
         for (int i = 0; i < numberOfRocks; i++)
         {
-            Vector3 spawnHere = randomOptions[Random.Range(0, randomOptions.Count)];
-            randomOptions.Remove(spawnHere);
+            Vector3 spawnHere = tileWorldLocations[Random.Range(0, tileWorldLocations.Count)];
+            tileWorldLocations.Remove(spawnHere);
+            /*Vector3 spawnHere = randomOptions[Random.Range(0, randomOptions.Count)];
+            randomOptions.Remove(spawnHere);*/
             GameObject objectInstance = Instantiate(rockReso, spawnHere, Quaternion.Euler(new Vector3(0, 0, 0)));
         }
 
         for (int i = 0; i < numberOfGold; i++)
         {
-            Vector3 spawnHere = randomOptions[Random.Range(0, randomOptions.Count)];
-            randomOptions.Remove(spawnHere);
+            Vector3 spawnHere = tileWorldLocations[Random.Range(0, tileWorldLocations.Count)];
+            tileWorldLocations.Remove(spawnHere);
+            /*Vector3 spawnHere = randomOptions[Random.Range(0, randomOptions.Count)];
+            randomOptions.Remove(spawnHere);*/
             GameObject objectInstance = Instantiate(goldReso, spawnHere, Quaternion.Euler(new Vector3(0, 0, 0)));
         }
 
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void GetCoords()
+    /*public void GetCoords()
     {
         BoundsInt size = (tilemap.cellBounds);
         float randCol = Random.Range(size.yMin, size.yMax);
@@ -98,6 +93,22 @@ public class spawnResources : MonoBehaviour
         }
 
         
+
+    }*/
+
+    public void GetAllTiles()
+    {
+        BoundsInt size = (tilemap.cellBounds);
+        TileBase[] allTiles = tilemap.GetTilesBlock(size);
+        foreach (var pos in tilemap.cellBounds.allPositionsWithin)
+        {
+            Vector3Int localPlace = new Vector3Int(pos.x, pos.y, pos.z);
+            Vector3 place = tilemap.CellToWorld(localPlace);
+            if (tilemap.HasTile(localPlace))
+            {
+                tileWorldLocations.Add(place);
+            }
+        }
 
     }
 }

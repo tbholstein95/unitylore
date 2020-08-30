@@ -6,8 +6,8 @@ public class CameraController : MonoBehaviour
 {
 
     private Transform target;
-    [SerializeField] private float smoothSpeed;
-    [SerializeField] private float minX, maxX, minY, maxY;
+    [SerializeField] private int smoothSpeed;
+    [SerializeField] private int minX, maxX, minY, maxY;
 
     private void Awake()
     {
