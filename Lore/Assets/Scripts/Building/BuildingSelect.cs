@@ -26,6 +26,7 @@ public class BuildingSelect : MonoBehaviour
         buildIndex = 1;
         Debug.Log("Selected Big Building");
         m_BuildMenuScript.test();
+        TileHighlight.turnOn = 1;
     }
 
     public void selectBuilding2()
@@ -33,6 +34,7 @@ public class BuildingSelect : MonoBehaviour
         buildIndex = 2;
         Debug.Log("Selected Small Building");
         m_BuildMenuScript.test();
+        TileHighlight.turnOn = 1;
     }
 
 

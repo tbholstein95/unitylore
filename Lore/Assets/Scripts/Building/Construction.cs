@@ -13,6 +13,7 @@ public class Construction : MonoBehaviour
     public GameObject buildingTwo;
     public Vector2 mousepos;
     public Grid grid;
+    public Tilemap tilemap;
     public Rm rm;
     int cost = 20;
     public int selectedBuildingNumber;
@@ -54,6 +55,7 @@ public class Construction : MonoBehaviour
         {
             if(BuildingSelect.buildIndex == 0)
             {
+                TileHighlight.turnOn = 0;
                 return;
 
             }
@@ -61,21 +63,23 @@ public class Construction : MonoBehaviour
             if(BuildingSelect.buildIndex == 1)
             {
                 buildMe = buildingOne;
-                TileHighlight.turnOn = true;
+                TileHighlight.turnOn = 0;
+
 
             }
 
             if(BuildingSelect.buildIndex == 2)
             {
                 buildMe = buildingTwo;
-                TileHighlight.turnOn = true;
+                TileHighlight.turnOn = 0;
             }
            
             if (rm.getWoodUnits() >= cost && rm.getRockUnits() >= cost && rm.getGoldUnits() >= cost)
             {
                 removeCost();
                 Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector3Int coordinate = grid.LocalToCell(mouseWorldPos);
+                //Vector3Int coordinate = grid.LocalToCell(mouseWorldPos);
+                Vector3Int coordinate = tilemap.WorldToCell(mouseWorldPos);
                 Vector3 tilepos = grid.GetCellCenterWorld(coordinate);
                 BuildingSelect.buildIndex = 0;
                 
@@ -87,7 +91,7 @@ public class Construction : MonoBehaviour
                 rockDisplay.text = "Rocks: " + rm.GetComponent<Rm>().getRockUnits();
                 woodDisplay.text = "Wood: " + rm.GetComponent<Rm>().getWoodUnits();
 
-                TileHighlight.turnOn = false;
+                TileHighlight.turnOn = 0;
             }
             else
             {

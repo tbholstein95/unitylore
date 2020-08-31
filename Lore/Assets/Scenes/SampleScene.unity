@@ -4316,7 +4316,10 @@ MonoBehaviour:
   tilemap: {fileID: 976674032}
   grid: {fileID: 2121484187}
   previousTileCoordinate: {x: 0, y: 0, z: 0}
+  twoBackCoordinate: {x: 0, y: 0, z: 0}
+  coordinate: {x: 0, y: 0, z: 0}
   color: {r: 128, g: 0, b: 128, a: 1}
+  color1: {r: 0, g: 0, b: 0, a: 0}
   preview: {fileID: 0}
   mousePoint: {x: 0, y: 0}
   colorOG: {r: 0, g: 0, b: 0, a: 0}
@@ -5511,6 +5514,7 @@ MonoBehaviour:
     type: 3}
   mousepos: {x: 0, y: 0}
   grid: {fileID: 2121484187}
+  tilemap: {fileID: 976674032}
   rm: {fileID: 1029236314}
   selectedBuildingNumber: 0
   goldDisplay: {fileID: 0}

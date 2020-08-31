@@ -823,7 +823,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonTemplate: {fileID: 6281070529849233401}
-  button: {fileID: 0}
   innPerson: {fileID: 5232295341188955023, guid: ac4ff64e0fa040643b4ba85c04e50505,
     type: 3}
 --- !u!1 &6703800997267709150
@@ -971,7 +970,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6784540501241455039}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.56, y: 1.23, z: 0}
+  m_LocalPosition: {x: 1.5, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 496859683489834272}
