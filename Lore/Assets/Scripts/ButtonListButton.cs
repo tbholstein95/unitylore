@@ -7,10 +7,9 @@ public class ButtonListButton : MonoBehaviour
 
     [SerializeField]
     private Text myText;
+
     [SerializeField]
     private ButtonListControl buttonControl;
-
-
 
     GameObject innPerson;
 

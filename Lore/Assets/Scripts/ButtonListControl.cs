@@ -39,7 +39,6 @@ public class ButtonListControl : MonoBehaviour
 
             button.transform.SetParent(buttonTemplate.transform.parent, false);
 
-
             //button.GetComponent<ButtonListButton>().OnClick(i);
             GameTime.refreshList = false;
         }
@@ -62,9 +61,5 @@ public class ButtonListControl : MonoBehaviour
         GameObject testSpawn = GameObject.Find(testName);
         Debug.Log(testName);
         GameObject spawnInnPerson = Instantiate(testSpawn);
-
     }
-
-
-
 }

@@ -31,10 +31,7 @@ public class TreeControl : MonoBehaviour
         {
             Debug.Log("Player in Tree Range of Tree");
             clicking = true;
-            //Debug.Log(clicking);
-
         }
-
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -42,11 +39,8 @@ public class TreeControl : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             clicking = false;
-            //Debug.Log(clicking);
             destroy = null;
-            
         }
-        
     }
     public void OnMouseDown()
     { 
@@ -54,9 +48,7 @@ public class TreeControl : MonoBehaviour
         {
             reso.GetComponent<Rm>().addWood(amount: quantity);
             woodDisplay.text = "Wood: " + reso.GetComponent<Rm>().getWoodUnits();
-            //Debug.Log(reso.GetComponent<Rm>().getWoodUnits());
             treeHealth -= 10;
-            
         }
     }
 
@@ -68,7 +60,6 @@ public class TreeControl : MonoBehaviour
             if (hit.collider != null)
             {
             destroy = hit.transform.parent.gameObject;
-            /*if (hit.transform.parent.gameObject == gameObject) Destroy(gameObject);*/
             }
 
             if (treeHealth <= 0)

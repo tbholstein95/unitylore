@@ -13,12 +13,9 @@ public class BuildMenu : MonoBehaviour
         buildMenuUI.SetActive(false);
     }
 
-
     public void test()
     {
         Debug.Log("I will open the menu!");
         buildMenuUI.SetActive(!buildMenuUI.activeSelf);
     }
-
-
 }

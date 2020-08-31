@@ -11,11 +11,6 @@ public class Rm : MonoBehaviour
     public static int goldUnits = 0;
     public int amount;
     
-
-    private void Start()
-    {
-        
-    }
     public void addWood(int amount)
     {
         woodUnits += amount;

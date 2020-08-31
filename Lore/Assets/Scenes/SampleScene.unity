@@ -1150,6 +1150,7 @@ GameObject:
   - component: {fileID: 976674034}
   - component: {fileID: 976674033}
   - component: {fileID: 976674036}
+  - component: {fileID: 976674037}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -4300,6 +4301,26 @@ MonoBehaviour:
     type: 3}
   numberOfGold: 1
   spotAvailable: 0
+--- !u!114 &976674037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976674029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aab2428afe43cb4d9b7114140b32bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 976674032}
+  grid: {fileID: 2121484187}
+  previousTileCoordinate: {x: 0, y: 0, z: 0}
+  color: {r: 128, g: 0, b: 128, a: 1}
+  preview: {fileID: 0}
+  mousePoint: {x: 0, y: 0}
+  colorOG: {r: 0, g: 0, b: 0, a: 0}
+  highlightColor: {r: 128, g: 0, b: 128, a: 1}
 --- !u!1 &979441732
 GameObject:
   m_ObjectHideFlags: 0
@@ -5495,6 +5516,7 @@ MonoBehaviour:
   goldDisplay: {fileID: 0}
   rockDisplay: {fileID: 0}
   woodDisplay: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2064724843
 GameObject:
   m_ObjectHideFlags: 0
