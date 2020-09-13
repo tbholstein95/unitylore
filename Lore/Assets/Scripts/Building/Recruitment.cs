@@ -6,14 +6,17 @@ public class Recruitment : MonoBehaviour
 {
     public static int recruitScore;
     float innScore;
+    float blackSmithScore;
     public static List<string> InnRecruits = new List<string>();
 
     void Update()
     {
         innScore = Inn.innScore;
+        blackSmithScore = BlacksmithScript.blackSmithScore;
         if(GameTime.recruitChance == true)
         {
             FindInnNPC();
+            FindBlackSmithNPC();
             GameTime.recruitChance = false;
         }
     }
@@ -28,7 +31,7 @@ public class Recruitment : MonoBehaviour
 
         if (ICD_Modifier >= ICD_Compare)
         {
-            Debug.Log("Who dat boi, who him is?");
+            Debug.Log("Innkeeper on Board");
             
             InnRecruits.Add("Bilbo");
             return;
@@ -36,6 +39,27 @@ public class Recruitment : MonoBehaviour
         else
         {
             Debug.Log("Sure is quiet around here");
+        }
+    }
+
+    void FindBlackSmithNPC()
+    {
+        float BlacksmithChanceDecimal = blackSmithScore / 1;
+
+        float BSCD_Modifier = BlacksmithChanceDecimal * Random.Range(1, 100);
+
+        int BSCD_Compare = Random.Range(1, 50);
+
+        if(BSCD_Modifier >= BSCD_Compare)
+        {
+            Debug.Log("Blacksmith On Board");
+
+            InnRecruits.Add("Charles");
+            return;
+        }
+        else
+        {
+            Debug.Log("No blacksmith today");
             GameTime.recruitChance = false;
         }
     }

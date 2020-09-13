@@ -13,8 +13,10 @@ public class ButtonListControl : MonoBehaviour
     //public GameObject button;
 
     public GameObject innPerson;
+    public Transform NPCHolder;
+    public List<GameObject> goList;
+    private GameObject[] m_gameObjects;
 
-    
 
 
     public void GenerateList()
@@ -29,7 +31,21 @@ public class ButtonListControl : MonoBehaviour
             button.transform.SetParent(buttonTemplate.transform.parent, false);
         }*/
 
-        foreach(var i in Recruitment.InnRecruits)
+        foreach (Transform child in NPCHolder.transform)
+        {
+            goList.Add(child.gameObject);
+            //goList.Add((GameObject)Instantiate(child.gameObject));
+            child.gameObject.SetActive(false);
+            
+        }
+
+        foreach(var x in goList)
+        {
+            Debug.Log(x.name);
+        }
+        //Debug.Log(goList + " HI");
+
+        foreach (var i in Recruitment.InnRecruits)
         {
             GameObject button = Instantiate(buttonTemplate) as GameObject;
             button.SetActive(true);
@@ -58,8 +74,24 @@ public class ButtonListControl : MonoBehaviour
         var go = EventSystem.current.currentSelectedGameObject;
         string name = go.ToString();
         string testName = go.GetComponentInChildren<Text>().text;
-        GameObject testSpawn = GameObject.Find(testName);
-        Debug.Log(testName);
-        GameObject spawnInnPerson = Instantiate(testSpawn);
+        for(int i = 0; i<goList.Count; i++)
+        {
+
+            foreach (var x in goList)
+            {
+                Debug.Log(x.name + "checking on click for names");
+            }
+
+            if (goList[i].name.Contains(testName))
+            {
+                goList[i].SetActive(true);
+                GameObject testSpawn = GameObject.Find(testName);
+                GameObject spawnInnPerson = Instantiate(testSpawn, new Vector3(0,0,0), Quaternion.identity);
+                goList[i].SetActive(false);
+            }
+        }
+        
+        //Debug.Log(testName);
+        
     }
 }
