@@ -19,6 +19,8 @@ public class Construction : MonoBehaviour
     public int selectedBuildingNumber;
     GameObject buildMe;
 
+    private GameObject currentBuilding;
+
     public Text goldDisplay;
     public Text rockDisplay;
     public Text woodDisplay;
@@ -37,7 +39,7 @@ public class Construction : MonoBehaviour
         woodDisplay = GameObject.FindGameObjectWithTag("woodDisplay").GetComponent<Text>();
         //woodDisplay.text = "Wood: " + rm.GetComponent<Rm>().getWoodUnits();
 
-        BuildingSelect.buildIndex = 0;
+        BuildingSelect.buildIndex = null;
 
 
 
@@ -51,27 +53,41 @@ public class Construction : MonoBehaviour
             Debug.Log(string.Concat("wood: ", rm.getWoodUnits(), " ", "gold: ", rm.getGoldUnits(), " ",  "rock: ", rm.getRockUnits()));
         }
 
+        if(currentBuilding != null)
+        {
+            Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3Int coordinate = tilemap.WorldToCell(mouseWorldPos);
+            Vector3 tilepos = grid.GetCellCenterWorld(coordinate);
+            currentBuilding.transform.position = (tilepos);
+            currentBuilding.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Destroy(currentBuilding);
+                TileHighlight.turnOn = 0;
+            }
+
+        }
+        
+
         if (Input.GetMouseButtonDown(1))
         {
-            if(BuildingSelect.buildIndex == 0)
+            if(BuildingSelect.buildIndex == null)
             {
                 TileHighlight.turnOn = 0;
                 return;
 
             }
 
-            if(BuildingSelect.buildIndex == 1)
+            if(BuildingSelect.buildIndex != null)
             {
-                buildMe = buildingOne;
+                
+                buildMe = BuildingSelect.buildIndex;
                 TileHighlight.turnOn = 0;
+                
+                
 
 
-            }
-
-            if(BuildingSelect.buildIndex == 2)
-            {
-                buildMe = buildingTwo;
-                TileHighlight.turnOn = 0;
             }
            
             if (rm.getWoodUnits() >= cost && rm.getRockUnits() >= cost && rm.getGoldUnits() >= cost)
@@ -81,7 +97,7 @@ public class Construction : MonoBehaviour
                 //Vector3Int coordinate = grid.LocalToCell(mouseWorldPos);
                 Vector3Int coordinate = tilemap.WorldToCell(mouseWorldPos);
                 Vector3 tilepos = grid.GetCellCenterWorld(coordinate);
-                BuildingSelect.buildIndex = 0;
+                BuildingSelect.buildIndex = null;
                 
 
                 Debug.Log(coordinate);
@@ -99,6 +115,11 @@ public class Construction : MonoBehaviour
             }
             
         }
+    }
+
+    public void SetItem(GameObject b)
+    {
+        currentBuilding = ((GameObject.Instantiate(b)));
     }
 
     public void removeCost()

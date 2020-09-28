@@ -17,6 +17,7 @@ public class ButtonListControl : MonoBehaviour
     public List<GameObject> goList;
     private GameObject[] m_gameObjects;
 
+    public List<GameObject> recruitedVillagers;
 
 
     public void GenerateList()
@@ -43,7 +44,6 @@ public class ButtonListControl : MonoBehaviour
         {
             Debug.Log(x.name);
         }
-        //Debug.Log(goList + " HI");
 
         foreach (var i in Recruitment.InnRecruits)
         {
@@ -88,6 +88,7 @@ public class ButtonListControl : MonoBehaviour
                 GameObject testSpawn = GameObject.Find(testName);
                 GameObject spawnInnPerson = Instantiate(testSpawn, new Vector3(0,0,0), Quaternion.identity);
                 goList[i].SetActive(false);
+                recruitedVillagers.Add(testSpawn);
             }
         }
         

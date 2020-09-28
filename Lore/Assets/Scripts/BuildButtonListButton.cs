@@ -9,13 +9,20 @@ public class BuildButtonListButton : MonoBehaviour
     private Text myText;
 
     [SerializeField]
-    private ButtonListControl buttonControl;
+    private BuildButtonListControl buttonControl;
 
     private string myTextString;
+
+
     public void SetText(string textString)
     {
         myTextString = textString;
         myText.text = textString;
+    }
+
+    public void OnClick()
+    {
+        buttonControl.ButtonClicked();
     }
 
 }

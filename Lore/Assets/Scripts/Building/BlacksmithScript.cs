@@ -6,10 +6,11 @@ public class BlacksmithScript : Building
 {
 
     public static int blackSmithScore;
+    public static int recruitFactor = 0;
     // Start is called before the first frame update
     void Start()
     {
-        recruitFactor = 10;
+        recruitFactor = 100;
         Recruitment.recruitScore += recruitFactor;
         blackSmithScore += recruitFactor;
     }
@@ -18,5 +19,10 @@ public class BlacksmithScript : Building
     void Update()
     {
         
+    }
+
+    public static int GetRecruitFactor()
+    {
+        return BlacksmithScript.recruitFactor;
     }
 }

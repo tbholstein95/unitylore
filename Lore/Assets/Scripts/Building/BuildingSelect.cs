@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildingSelect : MonoBehaviour
 {
     private GameObject[] buildList;
-    public static int buildIndex;
+    public static GameObject buildIndex;
 
     public BuildMenu m_BuildMenuScript;
 
@@ -21,7 +21,7 @@ public class BuildingSelect : MonoBehaviour
             buildList[i] = transform.GetChild(i).gameObject;
         }
     }
-    public void selectBuilding1()
+ /*   public void selectBuilding1()
     {
         buildIndex = 1;
         Debug.Log("Selected Big Building");
@@ -35,7 +35,7 @@ public class BuildingSelect : MonoBehaviour
         Debug.Log("Selected Small Building");
         m_BuildMenuScript.test();
         TileHighlight.turnOn = 1;
-    }
+    }*/
 
 
     void Update()
