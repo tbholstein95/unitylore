@@ -37,6 +37,7 @@ public class QuestGenerator : MonoBehaviour
         newQuest.GetComponent<testquest>().questname = questName;
         newQuest.GetComponent<testquest>().combatants = villains;
         newQuest.GetComponent<testquest>().difficulty = difficulty;
+        newQuest.name = questName;
         listOfGoQuests.Add(newQuest);
     }
 
