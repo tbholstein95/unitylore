@@ -18,6 +18,8 @@ public class ButtonListControl : MonoBehaviour
     private GameObject[] m_gameObjects;
 
     public List<GameObject> recruitedVillagers;
+    public List<Sprite> recruitedSprites;
+    public List<GameObject> currentRecruitedVillagers;
 
 
     public void GenerateList()
@@ -36,7 +38,9 @@ public class ButtonListControl : MonoBehaviour
         {
             goList.Add(child.gameObject);
             //goList.Add((GameObject)Instantiate(child.gameObject));
+            recruitedSprites.Add(child.gameObject.GetComponent<SpriteRenderer>().GetComponent<Sprite>());
             child.gameObject.SetActive(false);
+
             
         }
 
@@ -87,12 +91,44 @@ public class ButtonListControl : MonoBehaviour
                 goList[i].SetActive(true);
                 GameObject testSpawn = GameObject.Find(testName);
                 GameObject spawnInnPerson = Instantiate(testSpawn, new Vector3(0,0,0), Quaternion.identity);
+                spawnInnPerson.name = testName;
+                currentRecruitedVillagers.Add(goList[i]);
                 goList[i].SetActive(false);
-                recruitedVillagers.Add(testSpawn);
+                //recruitedVillagers.Add(testSpawn);
             }
         }
         
         //Debug.Log(testName);
         
+    }
+
+    public List<GameObject> returnMe()
+    {
+        foreach (GameObject people in goList)
+        {
+            recruitedVillagers.Add(people);
+            //goList.Add((GameObject)Instantiate(child.gameObject));
+            //child.gameObject.SetActive(false);
+
+        }
+
+        return recruitedVillagers;
+    }
+
+    public List<Sprite> returnSprite()
+    {
+
+        return recruitedSprites;
+    }
+
+    public List<GameObject> returnGameObjects(List<GameObject> fillMe)
+    {
+        for(var x = 0; x < currentRecruitedVillagers.Count; x++)
+        {
+            fillMe.Add(currentRecruitedVillagers[x]);
+            Debug.Log("Added" + currentRecruitedVillagers[x]);
+        }
+
+        return fillMe;
     }
 }

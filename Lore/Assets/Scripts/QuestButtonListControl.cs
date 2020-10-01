@@ -10,11 +10,17 @@ public class QuestButtonListControl : MonoBehaviour
     private GameObject buttonTemplate;
 
     public List<GameObject> questList;
-    public List<GameObject> qList = new List<GameObject>();
+    public List<GameObject> qList;
     public List<GameObject> acceptedQuests;
     public GameObject questMenu;
     public Text questNameDisplay;
-
+    public Dropdown characterDropdown;
+    public List<GameObject> characterHolder;
+    public List<Sprite> spriteHolder = new List<Sprite>();
+    public ButtonListControl scriptGetter;
+    public Image testImage;
+    public Sprite tempimage;
+    public List<GameObject> currentRecruitedVill = new List<GameObject>();
     // Start is called before the first frame update
 
     public void Awake()
@@ -75,15 +81,55 @@ public class QuestButtonListControl : MonoBehaviour
                 questMenu.SetActive(!questMenu.activeSelf);
                 GameObject test = qList[i];
                 string temp = test.GetComponent<testquest>().questname;
-                questNameDisplay.text = temp;
-            }
 
-            
+                questNameDisplay.text = temp;
+                characterHolder = scriptGetter.returnGameObjects(currentRecruitedVill);
+                spriteHolder = scriptGetter.returnSprite();
+                var dropdown = characterDropdown.transform.GetComponent<Dropdown>();
+                dropdown.options.Clear();
+                dropdown.options.Add(new Dropdown.OptionData() { text = "Select who will go" });
+
+                foreach (GameObject questParticipant in characterHolder)
+                {
+                    var x = 0;
+                    var tempDropDownOption = new Dropdown.OptionData();
+                    //tempDropDownOption.text = questParticipant.name;
+                    GameObject testGet = GameObject.Find(questParticipant.name);
+                    tempimage = questParticipant.GetComponent<Sprite>();
+                    Debug.Log(questParticipant.name + "QUEST PARTICIPANT AND NAME");
+                    //testImage.sprite = objectsprite.sprite;
+                    tempDropDownOption.text = questParticipant.name;
+                    tempDropDownOption.image = spriteHolder[x];
+                    x++;
+
+                    dropdown.options.Add(tempDropDownOption);
+                    /*dropdown.options.Add(new Dropdown.OptionData() { text = questParticipant.name, image = objectsprite });*/
+
+
+                }
+            }
+        }
+    }
+
+    public List<GameObject> sendCurrentRecruited(List<GameObject>fillMe)
+    {
+        for(var x = 0; x < characterHolder.Count; x++)
+        {
+            fillMe.Add(scriptGetter.goList[x]);
+            Debug.Log("Added" + scriptGetter.goList[x]);
         }
 
-        
+        return fillMe;
+    }
 
-        //Debug.Log(testName);
+    public List<GameObject> sendCurrentQuests(List<GameObject>listofQuests)
+    {
+        for(var x = 0; x < qList.Count; x++)
+        {
+            listofQuests.Add(qList[x]);
 
+        }
+
+        return listofQuests;
     }
 }
