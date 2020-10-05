@@ -15,6 +15,17 @@ public class QuestGenerator : MonoBehaviour
     public static List<GameObject> listOfGoQuests = new List<GameObject>();
     public rollDice dice = new rollDice();
 
+    public Transform RewardsContainer;
+    public List<GameObject> ListOfRewards;
+
+    public void Start()
+    {
+        foreach (Transform child in RewardsContainer.transform)
+        {
+            ListOfRewards.Add(child.gameObject);
+        }
+    }
+
 
     public void Update()
     {
@@ -34,10 +45,12 @@ public class QuestGenerator : MonoBehaviour
         int questNumber = Random.Range(1, 100000);
         questList.Add("Quest" + questNumber);
         string questName = ("Quest" + questNumber);
+        GameObject questReward = reward();
         GameObject newQuest = Instantiate(questToSpawn);
         newQuest.GetComponent<testquest>().questname = questName;
         newQuest.GetComponent<testquest>().combatants = villains;
         newQuest.GetComponent<testquest>().difficulty = difficulty;
+        newQuest.GetComponent<testquest>().ListOfRewards.Add(questReward);
         newQuest.name = questName;
         listOfGoQuests.Add(newQuest);
     }
@@ -45,8 +58,8 @@ public class QuestGenerator : MonoBehaviour
     int createDifficulty()
     {
         int difficulty;
-        int check = rollDice.RollDice(10, 3);
-        Debug.Log(check);
+        int check = rollDice.RollDice(6, 3);
+        Debug.Log("CHECK CHECK CHECK CHECK" + check);
         if(check <= 6 && check >= 3)
         {
             difficulty = 0;
@@ -72,20 +85,30 @@ public class QuestGenerator : MonoBehaviour
         if(difficulty == 0)
         {
             combatants = 2;
+            return combatants;
 
         }
         else if(difficulty == 1)
         {
             combatants = 3;
+            return combatants;
         }
         else
         {
             combatants = 4;
+            return combatants;
 
         }
 
-        return combatants;
 
 
+    }
+
+    public GameObject reward()
+    {
+        int randomSelect = 2;
+        Debug.Log("RANDOM SELECT = " + randomSelect);
+        GameObject generatedReward = ListOfRewards[randomSelect];
+        return generatedReward;
     }
 }

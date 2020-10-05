@@ -7,7 +7,7 @@ public class rollDice : MonoBehaviour
     public static int RollDice(int sides, int quantity)
     {
         int total = 0;
-        for(var i = 0; i <= quantity; i++)
+        for(var i = 0; i < quantity; i++)
         {
             total += Random.Range(1, sides + 1);
         }

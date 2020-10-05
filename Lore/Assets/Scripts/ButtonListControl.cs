@@ -92,6 +92,7 @@ public class ButtonListControl : MonoBehaviour
                 GameObject testSpawn = GameObject.Find(testName);
                 GameObject spawnInnPerson = Instantiate(testSpawn, new Vector3(0,0,0), Quaternion.identity);
                 spawnInnPerson.name = testName;
+                spawnInnPerson.GetComponent<Inventory>().SetInventorySize();
                 currentRecruitedVillagers.Add(goList[i]);
                 goList[i].SetActive(false);
                 //recruitedVillagers.Add(testSpawn);

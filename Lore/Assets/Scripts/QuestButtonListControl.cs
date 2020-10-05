@@ -21,6 +21,7 @@ public class QuestButtonListControl : MonoBehaviour
     public Image testImage;
     public Sprite tempimage;
     public List<GameObject> currentRecruitedVill = new List<GameObject>();
+    public QuestGenerator questGenerator;
     // Start is called before the first frame update
 
     public void Awake()

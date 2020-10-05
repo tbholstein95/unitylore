@@ -27,4 +27,6 @@ public class SendOnQuest : MonoBehaviour
         questchecker.QuestCalculation(goingOn, newquest);
  
     }
+
+
 }
