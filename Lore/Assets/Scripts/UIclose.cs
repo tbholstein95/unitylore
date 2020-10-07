@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIclose : MonoBehaviour
 {
+    //Used for General UI Panel closing.
     public GameObject UIPanel;
     
     public void OnClick()

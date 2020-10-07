@@ -11,12 +11,5 @@ public class Inn : Building
         recruitFactor = 10;
         Recruitment.recruitScore += recruitFactor;
         innScore += recruitFactor;
-        //Debug.Log(Recruitment.recruitScore);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log(innScore);
     }
 }

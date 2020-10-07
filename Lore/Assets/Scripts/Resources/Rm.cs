@@ -11,6 +11,7 @@ public class Rm : MonoBehaviour
     public static int goldUnits = 0;
     public int amount;
     
+    //Wood Functions
     public void addWood(int amount)
     {
         woodUnits += amount;
@@ -26,6 +27,7 @@ public class Rm : MonoBehaviour
         return woodUnits;
     }
 
+    //Rock Functions
     public void addRock(int amount)
     {
         rockUnits += amount;
@@ -41,6 +43,7 @@ public class Rm : MonoBehaviour
         return rockUnits;
     }
 
+    //Gold Functions
     public void addGold(int amount)
     {
         goldUnits += amount;

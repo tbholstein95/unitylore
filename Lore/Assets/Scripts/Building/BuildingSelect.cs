@@ -6,40 +6,20 @@ public class BuildingSelect : MonoBehaviour
 {
     private GameObject[] buildList;
     public static GameObject buildIndex;
-
     public BuildMenu m_BuildMenuScript;
 
 
     void Start()
     {
+        //Finds container that has all the building GameObjects.
         m_BuildMenuScript = GameObject.FindObjectOfType(typeof(BuildMenu)) as BuildMenu;
 
         buildList = new GameObject[transform.childCount];
+
         //fill array with building models
         for (int i = 0; i < transform.childCount; i++)
         {
             buildList[i] = transform.GetChild(i).gameObject;
         }
-    }
- /*   public void selectBuilding1()
-    {
-        buildIndex = 1;
-        Debug.Log("Selected Big Building");
-        m_BuildMenuScript.test();
-        TileHighlight.turnOn = 1;
-    }
-
-    public void selectBuilding2()
-    {
-        buildIndex = 2;
-        Debug.Log("Selected Small Building");
-        m_BuildMenuScript.test();
-        TileHighlight.turnOn = 1;
-    }*/
-
-
-    void Update()
-    {
-        
     }
 }

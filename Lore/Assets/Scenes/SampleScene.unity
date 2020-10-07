@@ -1051,10 +1051,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 3
-  minX: -2
-  maxX: 2
-  minY: -4
-  maxY: 4
+  minX: -3
+  maxX: 3
+  minY: -3
+  maxY: 3
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2129,7 +2129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroSelector: {fileID: 930128089}
   scriptHoldsQuestInfo: {fileID: 1447264812}
-  whoWeCanSend: []
   questchecker: {fileID: 817301083}
   questName: {fileID: 1464268000}
   quest: {fileID: 0}
@@ -2333,10 +2332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e6cc3bec071b3049b0adac337f9dde5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatants: 0
   questToSpawn: {fileID: 867681916229785814, guid: 610df6d82a1cf704aa6dbee1bf9cbaf8,
     type: 3}
-  dice: {fileID: 0}
   RewardsContainer: {fileID: 1619891958}
   ListOfRewards: []
 --- !u!4 &889456392
@@ -5931,13 +5928,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 976674032}
-  grid: {fileID: 2121484187}
   previousTileCoordinate: {x: 0, y: 0, z: 0}
   twoBackCoordinate: {x: 0, y: 0, z: 0}
-  coordinate: {x: 0, y: 0, z: 0}
-  color: {r: 128, g: 0, b: 128, a: 1}
   color1: {r: 0, g: 0, b: 0, a: 0}
-  preview: {fileID: 0}
   mousePoint: {x: 0, y: 0}
   colorOG: {r: 0, g: 0, b: 0, a: 0}
   highlightColor: {r: 128, g: 0, b: 128, a: 1}
@@ -6318,7 +6311,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myText: {fileID: 925332569}
-  buttonControl: {fileID: 2127929948}
 --- !u!1 &1025924270
 GameObject:
   m_ObjectHideFlags: 0
@@ -7923,7 +7915,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1619891958}
-  - component: {fileID: 1619891959}
   m_Layer: 0
   m_Name: RewardsContainer
   m_TagString: Untagged
@@ -7949,21 +7940,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1619891959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619891957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54e801c217738f94cbd516fdabbb5eb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rewardItems: []
-  RewardsContainer: {fileID: 1619891958}
-  ListOfRewards: []
 --- !u!1 &1644515247
 GameObject:
   m_ObjectHideFlags: 0
@@ -8745,8 +8721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d5b4061d30e324cbfa36a1e83bee96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 100
-  recruitFactor: 0
 --- !u!1 &1932829714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6185498104159787461, guid: b0b2358ac8b5d1f49819ff7dbfc7069e,
@@ -8882,11 +8856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417bd3b2866e95e4eafd0645d8ea46b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingOne: {fileID: 6784540501241455039, guid: 46f9f6e71bfb9d845a2b853eb3b00707,
-    type: 3}
-  buildingTwo: {fileID: 1702167555718429006, guid: 9a32a51f167f6484daccce07e6e4f9c8,
-    type: 3}
-  mousepos: {x: 0, y: 0}
   grid: {fileID: 2121484187}
   tilemap: {fileID: 976674032}
   rm: {fileID: 1029236314}
@@ -9318,7 +9287,6 @@ MonoBehaviour:
   buttonTemplate: {fileID: 1019667939}
   buildingHolder: {fileID: 543990275}
   buildingList: []
-  buildingNameList: []
   objectwithconstruction: {fileID: 0}
   m_BuildMenuScript: {fileID: 0}
 --- !u!1001 &1085169922452936513

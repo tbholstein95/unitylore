@@ -29,7 +29,6 @@ public class TreeControl : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            Debug.Log("Player in Tree Range of Tree");
             clicking = true;
         }
     }
@@ -57,7 +56,7 @@ public class TreeControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.tag != "Player")
             {
             destroy = hit.transform.parent.gameObject;
             }

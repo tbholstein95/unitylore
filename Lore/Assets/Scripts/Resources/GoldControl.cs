@@ -20,28 +20,28 @@ public class GoldControl : MonoBehaviour
 
     private void Start()
     {
+        //Sets resource manager script
         reso = GameObject.FindWithTag("resoman");
+
+        //UI Variables
         goldDisplay = GameObject.FindGameObjectWithTag("goldDisplay").GetComponent<Text>();
         goldDisplay.text = "Gold: " + reso.GetComponent<Rm>().getGoldUnits();
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        //If the player is close enough to Gold it will allow gathering.
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Player in Tree Range of Gold");
             clicking = true;
-            //Debug.Log(clicking);
-
         }
-
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            //If player leaves range they'll no longer be able to harvest
             clicking = false;
-            //Debug.Log(clicking);
             destroy = null;
         }
 
@@ -50,8 +50,9 @@ public class GoldControl : MonoBehaviour
     {
         if (clicking == true)
         {
+            //Adds gold
             reso.GetComponent<Rm>().addGold(amount: quantity);
-            //Debug.Log(reso.GetComponent<Rm>().getGoldUnits());
+            //TODO: Create function to modify UI or create the variable at the start to create faster times.
             goldDisplay.text = "Gold: " + reso.GetComponent<Rm>().getGoldUnits();
             goldHealth -= 10;
         }
@@ -62,10 +63,9 @@ public class GoldControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.tag != "Player")
             {
                 destroy = hit.transform.parent.gameObject;
-                /*if (hit.transform.parent.gameObject == gameObject) Destroy(gameObject);*/
             }
 
             if (goldHealth <= 0)
@@ -73,6 +73,5 @@ public class GoldControl : MonoBehaviour
                 Destroy(destroy);
             }
         }
-
     }
 }
