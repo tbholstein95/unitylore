@@ -19,7 +19,7 @@ public class ButtonListControl : MonoBehaviour
     public List<GameObject> recruitedVillagers;
     public List<Sprite> recruitedSprites;
     public List<GameObject> currentRecruitedVillagers;
-
+    Database adventurerStatsDatabase;
 
     public void GenerateList()
     {
@@ -68,6 +68,14 @@ public class ButtonListControl : MonoBehaviour
                 GameObject spawnInnPerson = Instantiate(testSpawn, new Vector3(0,0,0), Quaternion.identity);
                 spawnInnPerson.name = adventurerName;
                 spawnInnPerson.GetComponent<Inventory>().SetInventorySize();
+                string gameName = spawnInnPerson.GetComponent<adventurerStatHolder>().adventurerName;
+                adventurerStatsDatabase = GetComponent<Database>();
+                List<string> nameslist = adventurerStatsDatabase.characterNamesHolder;
+                int tablelength = adventurerStatsDatabase.tablelength;
+                int randomcharacterinteger = Random.Range(0, tablelength - 1);
+                string nameSelected = nameslist[randomcharacterinteger];
+                spawnInnPerson.GetComponent<adventurerStatHolder>().adventurerName = nameSelected;
+                Debug.Log("Adventurer's name set to " + spawnInnPerson.GetComponent<adventurerStatHolder>().adventurerName);
                 currentRecruitedVillagers.Add(goList[i]);
                 goList[i].SetActive(false);
             }

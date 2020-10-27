@@ -9,41 +9,19 @@ using System.Data;
 using System.Globalization;
 public class Database : MonoBehaviour
 {
+    public List<string> characterNamesHolder = new List<string>();
+    public int tablelength;
 
     public static void Main()
     {
-        string fileName = "testme.sqlite3";
+/*        string fileName = "testme.sqlite3";
         string sourcePath = @"C:\Users\cattoy\Documents\Python Projects\loreapi\loreapi\";
         string targetPath = @"C:\Users\cattoy\Documents\Unity Projects\Lore\unitylore\Lore\Assets\DB";
-        string relativePath = @"C: \Users\cattoy\Documents\Python Projects\loreapi\loreapi\testme.sqlite3";
+        string relativePath = @"C: \Users\cattoy\Documents\Python Projects\loreapi\loreapi\testme.sqlite3";*/
 
         // use path class to manipulate file and directory paths
-        string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
-        string destFile = System.IO.Path.Combine(targetPath, fileName);
-
-        //To copy folder's content to a new location create target folder. If the directory already exists than this does nothing.
-        /*System.IO.Directory.CreateDirectory(targetPath);*/
-
-        //To copy a file to another location and overwrite it if it already exists.
-        //System.IO.File.Copy(sourceFile, destFile, true);
-
-        //To copy all files in one directory to another directory.
-        /*if (System.IO.Directory.Exists(sourcePath))
-        {
-            string[] files = System.IO.Directory.GetFiles(sourcePath);
-            //copy files and overwrite if already exist
-            foreach (string s in files)
-            {
-                // Use static Path methods to extract only the file name from the path.
-                fileName = System.IO.Path.GetFileName(s);
-                destFile = System.IO.Path.Combine(targetPath, fileName);
-                System.IO.File.Copy(s, destFile, true);
-            }       
-        }
-        else
-        {
-            Debug.Log("Source path does not exist");
-        }*/
+/*        string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+        string destFile = System.IO.Path.Combine(targetPath, fileName);*/
     }
 
     public void Start()
@@ -72,16 +50,13 @@ public class Database : MonoBehaviour
         dbcon.Open();
         //IDbCommand cmnd_read = dbcon.CreateCommand();
         
-
-
-
-
         string length = "SELECT COUNT(id) FROM 'lore_lore'";
         string tlength = GetLength(length);
-        int tablelength = int.Parse(tlength);
+        //public variable
+        tablelength = int.Parse(tlength);
         System.Random rnd = new System.Random();
         int random_character = rnd.Next(2, tablelength + 2);
-        Debug.Log(random_character);
+        Debug.Log(random_character + "int random character");
 
         IDbCommand cmd = dbcon.CreateCommand();
         var parameter = cmd.CreateParameter();
@@ -91,33 +66,58 @@ public class Database : MonoBehaviour
         cmd.CommandType = CommandType.Text;
         cmd.CommandText = "SELECT * FROM 'lore_lore' WHERE id = @random_character";
 
+        IDbCommand putnamesinlist = dbcon.CreateCommand();
+        putnamesinlist.CommandType = CommandType.Text;
+        putnamesinlist.CommandText = "SELECT firstname FROM 'lore_lore'";
+        Debug.Log(tablelength + "table length");
+
+
+
 
         //string query = $"SELECT * FROM 'lore_lore'";
 
 
         IDataReader reader;
         //cmnd_read.CommandText = query;
-        reader = cmd.ExecuteReader();
+/*        reader = cmd.ExecuteReader();
         while (reader.Read())
         {
-            /*Debug.Log("id: " + reader[0].ToString());
+            Debug.Log("id: " + reader[0].ToString());
             Debug.Log("created: " + reader[1].ToString());
             Debug.Log("title: " + reader[2].ToString());
             Debug.Log("firstname: " + reader[3].ToString());
-            Debug.Log("owner_id: " + reader[5].ToString());*/
+            Debug.Log("owner_id: " + reader[5].ToString());
             Debug.Log("id: " + reader[0].ToString());
             Debug.Log("firstname: " + reader[3].ToString());
-            
+
         }
+        reader.Close();*/
+
+        reader = putnamesinlist.ExecuteReader();
+        while (reader.Read())
+        {
+            characterNamesHolder.Add(reader["firstname"].ToString());
+/*            for (var x = 0; x < tablelength - 1; x++)
+            {
+*//*                Debug.Log(reader["firstname"].ToString());*/
+                /*characterNamesHolder.Add(reader.GetValue(reader.GetOrdinal("firstname")).ToString());*/
+                /*                characterNamesHolder.Add(reader[x].ToString());*//*
+                
+            }*/
+        }
+
+        reader.Close();
+
 
         // Close connection
         dbcon.Close();
-
+        foreach(string x in characterNamesHolder)
+        {
+            Debug.Log(x + "hehe");
+        }
         
-
-
-
     }
+
     public string GetLength(string query)
     {
         string result = "";
@@ -131,6 +131,5 @@ public class Database : MonoBehaviour
         dbcon.Close();
         return result;
     }
-
 }
 

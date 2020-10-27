@@ -718,6 +718,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildHouse
       objectReference: {fileID: 0}
+    - target: {fileID: 8300027895901495492, guid: 46f9f6e71bfb9d845a2b853eb3b00707,
+        type: 3}
+      propertyPath: adventurerStatsDatabase
+      value: 
+      objectReference: {fileID: 1691269321}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46f9f6e71bfb9d845a2b853eb3b00707, type: 3}
 --- !u!1 &424448948 stripped
@@ -1361,7 +1366,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620450283}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -2131,7 +2136,6 @@ MonoBehaviour:
   scriptHoldsQuestInfo: {fileID: 1447264812}
   questchecker: {fileID: 817301083}
   questName: {fileID: 1464268000}
-  quest: {fileID: 0}
 --- !u!114 &817301085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2435,6 +2439,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &890225961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890225954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a6bc1135ace934bb4b3c2d702f9777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adventurerName: 
+  adventurerClass: 
 --- !u!1 &908367035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2771,7 +2789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &923874875
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2804,6 +2822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f460db0ba95b894ca0290c6f1363106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterNamesHolder: []
+  tablelength: 0
 --- !u!114 &923874877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2811,7 +2831,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923874874}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -2866,7 +2886,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923874874}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -7065,6 +7085,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000030517578}
   serializedVersion: 2
   m_Radius: 0.62500006
+--- !u!114 &1278454391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278454383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a6bc1135ace934bb4b3c2d702f9777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adventurerName: 
+  adventurerClass: 
 --- !u!1 &1337222490
 GameObject:
   m_ObjectHideFlags: 0
@@ -7566,7 +7600,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 394069922}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1691269316}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e847951d5abb0bf47aef528d26f974e6, type: 3}
@@ -8051,6 +8085,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!1 &1691269316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6670752966722390693, guid: 46f9f6e71bfb9d845a2b853eb3b00707,
+    type: 3}
+  m_PrefabInstance: {fileID: 394069922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1691269321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691269316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f460db0ba95b894ca0290c6f1363106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterNamesHolder: []
+  tablelength: 0
 --- !u!1 &1695851341
 GameObject:
   m_ObjectHideFlags: 0
@@ -8742,6 +8796,20 @@ MonoBehaviour:
   inventorySlots: []
   Adventurer: {fileID: 1932829714}
   inventory_size: 10
+--- !u!114 &1932829720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932829714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a6bc1135ace934bb4b3c2d702f9777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adventurerName: 
+  adventurerClass: 
 --- !u!1 &1943551702
 GameObject:
   m_ObjectHideFlags: 0
