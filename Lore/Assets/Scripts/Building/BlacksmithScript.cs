@@ -12,7 +12,7 @@ public class BlacksmithScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        recruitFactor = 100;
+        recruitFactor = 1;
         Recruitment.recruitScore += recruitFactor;
         blackSmithScore += recruitFactor;
     }

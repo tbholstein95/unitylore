@@ -1056,10 +1056,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 3
-  minX: -3
-  maxX: 3
-  minY: -3
-  maxY: 3
+  minX: -4
+  maxX: 4
+  minY: -4
+  maxY: 5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

@@ -78,14 +78,19 @@ public class QuestButtonListControl : MonoBehaviour
                 dropdown.options.Clear();
                 dropdown.options.Add(new Dropdown.OptionData() { text = "Select who will go" });
 
-                //Populates the drop down with who the playerh as recruited.
+                //Populates the drop down with who the player has recruited.
                 foreach (GameObject questParticipant in characterHolder)
                 {
+                    foreach(var x in characterHolder){
+                        Debug.Log(x);
+                    }
+                    Debug.Log(characterHolder + "Character Holder");
                     //create holder for dropdown data
                     var tempDropDownOption = new Dropdown.OptionData();
-
                     //sets the name of the option
-                    tempDropDownOption.text = questParticipant.name;
+                    adventurerStatHolder real_name = questParticipant.GetComponent<adventurerStatHolder>();
+                    // tempDropDownOption.text = questParticipant.name;
+                    tempDropDownOption.text = real_name.adventurerName;
                     //adds the tearDownOption
                     dropdown.options.Add(tempDropDownOption);
                 }

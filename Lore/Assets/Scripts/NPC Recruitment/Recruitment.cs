@@ -30,7 +30,7 @@ public class Recruitment : MonoBehaviour
     //Each of these has their own equation. Temporary until it can be game tested.  These all work though and will always be recruited.
     void FindInnNPC()
     {
-        float InnChanceDecimal = innScore / 1;
+        float InnChanceDecimal = innScore / 50;
 
         float ICD_Modifier = InnChanceDecimal * Random.Range(1, 100);
 
@@ -51,9 +51,9 @@ public class Recruitment : MonoBehaviour
 
     void FindBlackSmithNPC()
     {
-        float BlacksmithChanceDecimal = blackSmithScore / 1;
+        float BlacksmithChanceDecimal = blackSmithScore / 1000;
 
-        float BSCD_Modifier = BlacksmithChanceDecimal * Random.Range(50, 100);
+        float BSCD_Modifier = BlacksmithChanceDecimal * Random.Range(1, 100);
 
         int BSCD_Compare = Random.Range(1, 50);
 
@@ -73,11 +73,11 @@ public class Recruitment : MonoBehaviour
 
     void FindAdventurer()
     {
-        float AdventurerChanceDecimal = adventurerScore / 1;
+        float AdventurerChanceDecimal = adventurerScore / 1000;
 
-        float ACD_Modifier = AdventurerChanceDecimal * Random.Range(50, 100);
+        float ACD_Modifier = AdventurerChanceDecimal * Random.Range(1, 100);
 
-        int ACD_Compare = Random.Range(1, 50);
+        int ACD_Compare = Random.Range(5,100);
 
         if (ACD_Modifier >= ACD_Compare)
         {

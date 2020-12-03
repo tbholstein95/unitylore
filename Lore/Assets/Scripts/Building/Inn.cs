@@ -8,7 +8,7 @@ public class Inn : Building
     // Start is called before the first frame update
     void Start()
     {
-        recruitFactor = 10;
+        recruitFactor = 1;
         Recruitment.recruitScore += recruitFactor;
         innScore += recruitFactor;
     }

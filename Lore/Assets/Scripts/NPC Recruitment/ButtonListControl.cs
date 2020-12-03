@@ -76,7 +76,8 @@ public class ButtonListControl : MonoBehaviour
                 string nameSelected = nameslist[randomcharacterinteger];
                 spawnInnPerson.GetComponent<adventurerStatHolder>().adventurerName = nameSelected;
                 Debug.Log("Adventurer's name set to " + spawnInnPerson.GetComponent<adventurerStatHolder>().adventurerName);
-                currentRecruitedVillagers.Add(goList[i]);
+                //currentRecruitedVillagers.Add(goList[i]);
+                currentRecruitedVillagers.Add(spawnInnPerson);
                 goList[i].SetActive(false);
             }
         } 

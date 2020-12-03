@@ -32,7 +32,38 @@ public class spawnResources : MonoBehaviour
 
         // TODO: I think this is too slow, optimize.
         //Generates number of Trees Equal to numberOfTrees Variable
-        for(int i = 0; i < numberOfTrees; i++)
+        Generate();
+
+    }
+
+    public void GetAllTiles()
+    {
+        //Gets the size of the map from the cellbounds.
+        BoundsInt size = (tilemap.cellBounds);
+        size.xMax = 7;
+        size.xMin = -7;
+        size.yMax = 8;
+        size.yMin = -7;
+
+
+        /*TileBase[] allTiles = tilemap.GetTilesBlock(size);*/
+        //Puts each tile in the map into a list in order to not use duplicate tiles when spawning resources.
+        /*foreach (var pos in tilemap.cellBounds.allPositionsWithin)*/
+        foreach (var pos in size.allPositionsWithin)
+        {
+            Vector3Int localPlace = new Vector3Int(pos.x, pos.y, pos.z);
+            Vector3 place = tilemap.CellToWorld(localPlace);
+            if (tilemap.HasTile(localPlace))
+            {
+                tileWorldLocations.Add(place);
+            }
+        }
+    }
+
+
+    public void Generate()
+    {
+        for (int i = 0; i < numberOfTrees; i++)
         {
             Vector3 spawnHere = tileWorldLocations[Random.Range(0, tileWorldLocations.Count)];
             tileWorldLocations.Remove(spawnHere);
@@ -53,25 +84,6 @@ public class spawnResources : MonoBehaviour
             Vector3 spawnHere = tileWorldLocations[Random.Range(0, tileWorldLocations.Count)];
             tileWorldLocations.Remove(spawnHere);
             GameObject objectInstance = Instantiate(goldReso, spawnHere, Quaternion.Euler(new Vector3(0, 0, 0)));
-        }
-    }
-
-    public void GetAllTiles()
-    {
-        //Gets the size of the map from the cellbounds.
-        BoundsInt size = (tilemap.cellBounds);
-
-
-        /*TileBase[] allTiles = tilemap.GetTilesBlock(size);*/
-        //Puts each tile in the map into a list in order to not use duplicate tiles when spawning resources.
-        foreach (var pos in tilemap.cellBounds.allPositionsWithin)
-        {
-            Vector3Int localPlace = new Vector3Int(pos.x, pos.y, pos.z);
-            Vector3 place = tilemap.CellToWorld(localPlace);
-            if (tilemap.HasTile(localPlace))
-            {
-                tileWorldLocations.Add(place);
-            }
         }
     }
 }

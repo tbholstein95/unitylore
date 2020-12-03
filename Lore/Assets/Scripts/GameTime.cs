@@ -18,9 +18,12 @@ public class GameTime : MonoBehaviour
     public static bool refreshList = false;
     public static bool clearList = false;
     public Text timeDisplay;
+    spawnResources temp;
 
-    private void Start()
+    public void Start()
     {
+        GameObject gametime = GameObject.Find("Tilemap");
+        temp = gametime.GetComponent<spawnResources>();
         timeDisplay = GameObject.FindGameObjectWithTag("timeDisplay").GetComponent<Text>();
         InvokeRepeating("Tick", 0f, 1f);
     }
@@ -44,8 +47,10 @@ public class GameTime : MonoBehaviour
 
         if(minute >= 3)
         {
+            temp.Generate();
             minute = 0;
             hour += 1;
+            
         }
 
         if(hour == 1 && minute <= 2)
