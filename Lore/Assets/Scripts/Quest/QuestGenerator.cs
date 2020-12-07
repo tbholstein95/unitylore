@@ -47,6 +47,7 @@ public class QuestGenerator : MonoBehaviour
         int questNumber = Random.Range(1, 100000);
         questList.Add("Quest" + questNumber);
         string questName = ("Quest" + questNumber);
+        int timeToComplete = Random.Range(2, 4);
 
         //Selects a random reward. Can be refined later for selective reward based on type.
         GameObject questReward = reward();
@@ -59,6 +60,7 @@ public class QuestGenerator : MonoBehaviour
         newQuest.GetComponent<testquest>().combatants = villains;
         newQuest.GetComponent<testquest>().difficulty = difficulty;
         newQuest.GetComponent<testquest>().ListOfRewards.Add(questReward);
+        newQuest.GetComponent<testquest>().secondsToComplete = timeToComplete;
         newQuest.name = questName;
 
         //Adds the quest to the list of currently created quests.
@@ -105,6 +107,7 @@ public class QuestGenerator : MonoBehaviour
             return combatants;
         }
     }
+
 
     public GameObject reward()
     {

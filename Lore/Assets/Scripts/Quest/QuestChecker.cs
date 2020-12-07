@@ -19,7 +19,9 @@ public class QuestChecker : MonoBehaviour
         //Shows adventurer's current inventory
         List<RewardStats> iHave = adventurer.GetComponent<Inventory>().inventorySlots;
 
-        if (adventurer.name == "King"){
+
+        //Should probably use a Switch case once we get into the thick of it.
+        if (adventurer.GetComponent<adventurerStatHolder>().adventurerClass == "King"){
             //determines success rate of the monster
             int diceroll =  rollDice.RollDice(4, monsters);
             //determines success rate of the adventurer

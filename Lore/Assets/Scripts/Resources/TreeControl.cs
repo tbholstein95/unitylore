@@ -76,10 +76,6 @@ public class TreeControl : MonoBehaviour
                 Vector3 newHit = tilemap.WorldToCell(otherHit);
                 Debug.Log(newHit + "I'm NEW");
                 spawnRes.tileWorldLocations.Add(otherHit);
-                foreach ( var x in spawnRes.tileWorldLocations)
-                {
-                    Debug.Log(x + "I'm in the list!");
-                }
                 Destroy(destroy);
                 
             }

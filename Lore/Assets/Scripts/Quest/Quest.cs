@@ -8,4 +8,5 @@ public class Quest : MonoBehaviour
     public string questname;
     public int combatants;
     public int difficulty;
+    public int secondsToComplete;
 }

@@ -56,7 +56,7 @@ public class Database : MonoBehaviour
         tablelength = int.Parse(tlength);
         System.Random rnd = new System.Random();
         int random_character = rnd.Next(2, tablelength + 2);
-        Debug.Log(random_character + "int random character");
+        //Debug.Log(random_character + "int random character");
 
         IDbCommand cmd = dbcon.CreateCommand();
         var parameter = cmd.CreateParameter();
@@ -69,7 +69,7 @@ public class Database : MonoBehaviour
         IDbCommand putnamesinlist = dbcon.CreateCommand();
         putnamesinlist.CommandType = CommandType.Text;
         putnamesinlist.CommandText = "SELECT firstname FROM 'lore_lore'";
-        Debug.Log(tablelength + "table length");
+        //Debug.Log(tablelength + "table length");
 
 
 
@@ -111,10 +111,10 @@ public class Database : MonoBehaviour
 
         // Close connection
         dbcon.Close();
-        foreach(string x in characterNamesHolder)
+/*        foreach(string x in characterNamesHolder)
         {
             Debug.Log(x + "hehe");
-        }
+        }*/
         
     }
 

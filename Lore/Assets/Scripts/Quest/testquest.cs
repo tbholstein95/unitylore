@@ -8,5 +8,8 @@ public class testquest : MonoBehaviour
     public string questname;
     public int combatants;
     public int difficulty;
+    public int secondsToComplete;
     public List<GameObject> ListOfRewards;
+
+
 }

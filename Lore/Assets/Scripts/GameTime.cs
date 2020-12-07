@@ -39,7 +39,7 @@ public class GameTime : MonoBehaviour
             refreshList = true;
         }
 
-        if(second >= 10)
+        if(second >= 15)
         {
             second = 0;
             minute += 1;
@@ -65,6 +65,11 @@ public class GameTime : MonoBehaviour
         }
         
         timeDisplay.text = "Day: " + day + "Time: " + hour + ":" + minute + ":" + second;
+    }
+
+    public static int returnTime()
+    {
+        return second;
     }
 
     
